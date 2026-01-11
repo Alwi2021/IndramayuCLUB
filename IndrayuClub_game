@@ -63,7 +63,10 @@
     <section>
         <h3 class="text-[10px] text-slate-400 mb-4 border-l-2 border-yellow-500 pl-2">FAVORITE GAMES</h3>
         <div class="flex gap-4 overflow-x-auto no-scrollbar pb-4">
-            
+            <button onclick="window.location.href='cd.html'" class="bg-cyan-600 p-3 rounded-lg text-[10px]">
+    BUKA GUDANG CD
+</button>
+
             <button onclick="pilih('RUMBLE RACING', 'https://m.media-amazon.com/images/I/51G8K280TCL.jpg')" class="kaset-card shrink-0 w-28 bg-slate-900 rounded-xl overflow-hidden">
                 <img src="https://m.media-amazon.com/images/I/51G8K280TCL.jpg" class="h-32 w-full object-cover">
                 <p class="text-[7px] p-2 text-center text-slate-300 uppercase">Rumble Racing</p>
