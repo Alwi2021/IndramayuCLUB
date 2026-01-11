@@ -59,13 +59,22 @@
             </div>
         </div>
     </main>
+<section>
+<section class="px-2 mb-6">
+    <button onclick="window.location.href='cd.html'" class="w-full flex items-center justify-between bg-slate-900 border border-cyan-500/30 p-4 rounded-2xl shadow-lg active:scale-95 transition-all">
+        <div class="flex items-center gap-3">
+            <span class="text-xl">💿</span>
+            <div class="text-left">
+                <h3 class="text-[10px] font-bold text-white uppercase tracking-widest">Buka Gudang CD</h3>
+                <p class="text-[7px] text-cyan-400 uppercase">Indramayu Club Secret Storage</p>
+            </div>
+        </div>
+        <span class="text-[10px] text-slate-500">ENTER →</span>
+    </button>
+</section>
 
-    <section>
-        <h3 class="text-[10px] text-slate-400 mb-4 border-l-2 border-yellow-500 pl-2">FAVORITE GAMES</h3>
-        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-4">
-            <button onclick="window.location.href='cd.html'" class="bg-cyan-600 p-3 rounded-lg text-[10px]">
-    BUKA GUDANG CD
-</button>
+
+    
 
             <button onclick="pilih('RUMBLE RACING', 'https://m.media-amazon.com/images/I/51G8K280TCL.jpg')" class="kaset-card shrink-0 w-28 bg-slate-900 rounded-xl overflow-hidden">
                 <img src="https://m.media-amazon.com/images/I/51G8K280TCL.jpg" class="h-32 w-full object-cover">
