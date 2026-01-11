@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indramayu Club Game - Secret Link Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body { background: #020617; color: white; font-family: 'Orbitron', sans-serif; overflow-x: hidden; }
+        .cd-case { transition: all 0.4s ease; border: 1px solid #1e293b; position: relative; overflow: hidden; }
+        .cd-case:hover { transform: translateY(-10px); border-color: #06b6d4; box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3); }
+        .badge-4p { background: linear-gradient(to right, #9333ea, #7e22ce); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="p-4 bg-slate-950">
+
+    <div class="mb-6 bg-black border-2 border-cyan-900 rounded-3xl p-5 text-center shadow-[inset_0_0_20px_rgba(6,182,212,0.2)]">
+        <h2 id="display-title" class="text-xs text-cyan-400 tracking-[0.3em] uppercase">Nur Engine V.2 Active</h2>
+        <p id="display-stat" class="text-[7px] text-slate-500 mt-1 uppercase">Sistem Link Rahasia Terkoneksi</p>
+    </div>
+
+    <div class="space-y-8 mb-28">
+        
+        <section>
+            <h3 class="text-[9px] text-yellow-500 mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span> 
+                ARENA ARISAN & MULTIPLAYER (4P)
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="bootSecret('DOKAPON', 'DOKAPON_ID')" class="cd-case rounded-2xl bg-slate-900/50">
+                    <img src="https://vimm.net/vault/images/covers/ps1/Dokapon%21%20-%20Ikari%20no%20Tekken.jpg" class="h-44 w-full object-cover rounded-t-2xl">
+                    <div class="p-2">
+                        <p class="text-[8px] font-bold text-center">DOKAPON! (DADU)</p>
+                        <span class="block text-[6px] text-center text-purple-400">4 PLAYER READY</span>
+                    </div>
+                </div>
+                <div onclick="bootSecret('CTR', 'CTR_ID')" class="cd-case rounded-2xl bg-slate-900/50">
+                    <img src="https://vimm.net/vault/images/covers/ps1/Crash%20Team%20Racing.jpg" class="h-44 w-full object-cover rounded-t-2xl">
+                    <div class="p-2">
+                        <p class="text-[8px] font-bold text-center">CTR RACING</p>
+                        <span class="block text-[6px] text-center text-purple-400">4 PLAYER READY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-[9px] text-cyan-500 mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 bg-cyan-500 rounded-full"></span> 
+                DUEL PEJUANG (2P)
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="bootSecret('METAL SLUG X', 'MSLUG_ID')" class="cd-case rounded-2xl bg-slate-900/50">
+                    <img src="https://vimm.net/vault/images/covers/ps1/Metal%20Slug%20X.jpg" class="h-44 w-full object-cover rounded-t-2xl">
+                    <div class="p-2">
+                        <p class="text-[8px] font-bold text-center">METAL SLUG (TENTARA)</p>
+                        <span class="block text-[6px] text-center text-cyan-400">2 PLAYER READY</span>
+                    </div>
+                </div>
+                <div onclick="bootSecret('RUMBLE RACING', 'RUMBLE_ID')" class="cd-case rounded-2xl bg-slate-900/50 border-2 border-cyan-500/50">
+                    <img src="https://m.media-amazon.com/images/I/51G8K280TCL.jpg" class="h-44 w-full object-cover rounded-t-2xl">
+                    <div class="p-2">
+                        <p class="text-[8px] font-bold text-center">RUMBLE RACING</p>
+                        <span class="block text-[6px] text-center text-cyan-400">MASTER GAME</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="fixed bottom-0 left-0 w-full p-5 bg-slate-950/90 backdrop-blur-xl border-t border-slate-800">
+        <input type="text" id="v-input" placeholder="INPUT VOUCHER: INDRAMAYUCLUB" class="w-full bg-black border border-slate-700 p-4 rounded-2xl text-[10px] text-center text-yellow-500 font-bold uppercase tracking-widest mb-3">
+        <button onclick="proses()" class="w-full py-4 bg-cyan-600 rounded-2xl font-bold text-[9px] uppercase tracking-[0.2em] shadow-lg shadow-cyan-500/20 active:scale-95 transition-all">
+            Koneksi ke Nur Server
+        </button>
+    </div>
+
+    <script>
+        // Database Link Rahasia (ID File Drive Bapak)
+        const SECRET_REPO = {
+            'RUMBLE_ID': 'LINK_DOWNLOAD_RAHASIA_RUMBLE',
+            'MSLUG_ID': 'LINK_DOWNLOAD_RAHASIA_METAL_SLUG',
+            'DOKAPON_ID': 'LINK_DOWNLOAD_RAHASIA_DOKAPON',
+            'CTR_ID': 'LINK_DOWNLOAD_RAHASIA_CTR'
+        };
+
+        let activeGame = null;
+
+        function bootSecret(name, id) {
+            activeGame = { name, id };
+            document.getElementById('display-title').innerText = "LOADING: " + name;
+            document.getElementById('display-stat').innerText = "LINK RAHASIA TERKUNCI";
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function proses() {
+            const code = document.getElementById('v-input').value.toUpperCase();
+            if(!activeGame) return alert("Pilih Kaset CD Dulu!");
+            
+            if(code === "INDRAMAYUCLUB") {
+                const link = SECRET_REPO[activeGame.id];
+                alert("VOUCHER VALID! Nur membuka link rahasia...");
+                
+                // Kirim Notifikasi ke WA Bapak
+                const msg = `AKTIVASI GAME: ${activeGame.name} menggunakan Voucher INDRAMAYUCLUB. Link Rahasia dikirim!`;
+                window.location.href = `https://wa.me/6281386517352?text=${encodeURIComponent(msg)}`;
+            } else {
+                alert("VOUCHER SALAH!");
+            }
+        }
+    </script>
+</body>
+</html>
