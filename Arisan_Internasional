@@ -1,113 +1,60 @@
-<section class="mt-8 mb-24 px-2">
-    <div class="flex items-center justify-between mb-4 border-l-4 border-cyan-500 pl-3">
-        <div>
-            <h3 class="text-[11px] text-white font-bold uppercase tracking-tighter">
-                Diskusi Arisan Makrifat internasional
-            </h3>
-            <p class="text-[7px] text-cyan-500 uppercase">Koneksi Antar Negara • Nur Engine</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INDRAMAYU CLUB - Main Entrance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body { background: #020617; color: white; font-family: 'Orbitron', sans-serif; }
+        .neon-border { border: 1px solid #06b6d4; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+        .btn-main { transition: all 0.3s ease; }
+        .btn-main:active { scale: 0.95; }
+    </style>
+</head>
+<body class="p-6 flex flex-col items-center justify-center min-height-screen">
+
+    <div class="w-full max-w-sm text-center mb-10">
+        <div class="inline-block p-4 rounded-full bg-slate-900 neon-border mb-4">
+            <span class="text-4xl">💎</span>
         </div>
-        <span class="text-[18px]">🌏</span>
+        <h1 class="text-xl font-bold tracking-[0.2em] text-cyan-400">INDRAMAYU CLUB</h1>
+        <p class="text-[8px] text-slate-500 uppercase mt-2 italic">Intelligence Assistant: Nur Engine Active</p>
     </div>
-    
-    <div class="space-y-3">
-        <div onclick="masukMigran('HONG KONG', '🇭🇰')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-red-500 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇭🇰</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Victoria Peak - HK</h4>
-                    <p class="text-[7px] text-slate-400">Arisan Pekerja Migran Hong Kong</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="block text-[6px] text-red-500 font-bold animate-pulse uppercase">Aktif</span>
-                <span class="text-[8px] text-slate-500">Room 01</span>
+
+    <div class="w-full max-w-sm space-y-6">
+        
+        <div onclick="window.location.href='cd.html'" class="btn-main p-6 bg-slate-900/80 rounded-3xl border border-yellow-500/50 flex items-center gap-6 cursor-pointer hover:bg-yellow-500/10">
+            <span class="text-4xl">🎮</span>
+            <div>
+                <h2 class="text-sm font-bold text-yellow-500">GUDANG GAME PS1</h2>
+                <p class="text-[7px] text-slate-400 uppercase">Rumble Racing & Multiplayer Arena</p>
             </div>
         </div>
 
-        <div onclick="masukMigran('TAIWAN', '🇹🇼')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-blue-500 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇹🇼</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Formosa Center - TW</h4>
-                    <p class="text-[7px] text-slate-400">Kumpulan Token Anak ABK & Pabrik</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 02</span>
+        <div onclick="window.location.href='makrifat.html'" class="btn-main p-6 bg-slate-900/80 rounded-3xl border border-cyan-500/50 flex items-center gap-6 cursor-pointer hover:bg-cyan-500/10">
+            <span class="text-4xl">🌏</span>
+            <div>
+                <h2 class="text-sm font-bold text-cyan-400">ARISAN MAKRIFAT</h2>
+                <p class="text-[7px] text-slate-400 uppercase">Koneksi Pejuang Devisa Internasional</p>
             </div>
         </div>
 
-        <div onclick="masukMigran('KOREA SELATAN', '🇰🇷')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-white transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇰🇷</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Seoul G2G - KR</h4>
-                    <p class="text-[7px] text-slate-400">Diskusi Niaga Pekerja Korea</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 03</span>
-            </div>
-        </div>
-
-        <div onclick="masukMigran('JEPANG', '🇯🇵')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-red-600 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇯🇵</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Sakura Magang - JP</h4>
-                    <p class="text-[7px] text-slate-400">Tabungan Masa Depan Magang Jepang</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 04</span>
-            </div>
-        </div>
-
-        <div onclick="masukMigran('ARAB SAUDI', '🇸🇦')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-green-500 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇸🇦</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Makkah Barakah - SA</h4>
-                    <p class="text-[7px] text-slate-400">Arisan Makrifat & Spiritual Save</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 05</span>
-            </div>
-        </div>
-
-        <div onclick="masukMigran('MALAYSIA SEMENANJUNG', '🇲🇾')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-yellow-500 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🇲🇾</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">Petronas Zone - MY</h4>
-                    <p class="text-[7px] text-slate-400">Komunitas Melayu & TKI Malaysia</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 06</span>
-            </div>
-        </div>
-
-        <div onclick="masukMigran('diskusi world peace', '🌠')" class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800 hover:border-yellow-500 transition-all active:scale-95 shadow-lg">
-            <div class="flex items-center gap-4">
-                <span class="text-3xl">🌠</span>
-                <div>
-                    <h4 class="text-[10px] font-bold text-white uppercase">human in soul- MY</h4>
-                    <p class="text-[7px] text-slate-400">mari menuju makrifat</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <span class="text-[8px] text-slate-500">Room 07</span>
-            </div>
-        </div>
     </div>
-</section>
 
-<script>
-function masukMigran(negara, flag) {
-    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
-    const teks = `Sapaan Nur: Halo Admin Jamhari, saya Pejuang Devisa dari ${flag} ${negara} ingin bergabung dalam diskusi Arisan Makrifat.`;
-    window.location.href = `https://wa.me/6281386517352?text=${encodeURIComponent(teks)}`;
-}
-</script>
+    <div class="fixed bottom-8 text-center w-full px-6">
+        <div class="h-[1px] w-20 bg-slate-800 mx-auto mb-4"></div>
+        <p class="text-[7px] text-slate-600 uppercase tracking-widest leading-relaxed">
+            Misi: Menuju Makrifat Manusia<br>
+            Managed by Admin Jamhari & Nur
+        </p>
+    </div>
+
+    <script>
+        // Efek getar saat masuk
+        if (navigator.vibrate) navigator.vibrate(50);
+    </script>
+</body>
+</html>
+
