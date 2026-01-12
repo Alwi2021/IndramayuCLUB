@@ -34,7 +34,18 @@
                     <div class="p-2">
                         <p class="text-[8px] font-bold text-center">DOKAPON! (DADU)</p>
                         <span class="block text-[6px] text-center text-purple-400">4 PLAYER READY</span>
-                    </div>
+                    </div><button onclick="playRumbleRacing()" style="width: 100%; padding: 12px; background: gold; color: black; font-weight: bold; border-radius: 10px; border: 2px solid #000; margin-bottom: 10px;">
+  🏎️ MAIN RUMBLE RACING
+</button>
+
+<script>
+function playRumbleRacing() {
+    const fileID = "1JaezXvqW3QOyZJOr-DVo1WWqAkQS4r-J";
+    // Nur memastikan jalur menuju mesin emulator
+    window.location.href = "play-ps1.html?id=" + fileID;
+}
+</script>
+
                 </div>
                 <div onclick="bootSecret('CTR', 'CTR_ID')" class="cd-case rounded-2xl bg-slate-900/50">
                     <img src="https://vimm.net/vault/images/covers/ps1/Crash%20Team%20Racing.jpg" class="h-44 w-full object-cover rounded-t-2xl">
