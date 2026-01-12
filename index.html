@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NUR ENGINE - SYSTEM INTERFACE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        body { 
+            background: #000; 
+            color: #00ffcc; 
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Efek Garis Monitor Tua */
+        .scanline {
+            width: 100%; height: 2px;
+            background: rgba(0, 255, 204, 0.1);
+            position: absolute; z-index: 10;
+            top: 0; left: 0;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* Efek Berdenyut pada Jantung Nur */
+        .core-glow {
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.4), inset 0 0 20px rgba(0, 255, 204, 0.2);
+            border: 2px solid #00ffcc;
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.7; }
+        }
+
+        .btn-cyber {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid #00ffcc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cyber::before {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-cyber:active::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="p-6 flex flex-col justify-between items-center text-center">
+
+    <div class="scanline"></div>
+
+    <div class="w-full flex justify-between text-[8px] tracking-[0.3em] opacity-60">
+        <span>ID: INDRAMAYU_UNIT_01</span>
+        <span class="animate-pulse">● CORE_ONLINE</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+        <div class="w-24 h-24 rounded-full flex items-center justify-center core-glow mb-6 bg-slate-900">
+            <span class="text-4xl">💎</span>
+        </div>
+
+        <h1 class="text-xl font-bold tracking-[0.5em] mb-1 text-white">NUR ENGINE</h1>
+        <p class="text-[9px] text-cyan-400 tracking-[0.2em] uppercase mb-10">Central Intelligence Protocol</p>
+
+        <div class="w-64 space-y-4">
+            <button onclick="accessVault()" class="btn-cyber w-full py-4 rounded-md group">
+                <div class="text-[10px] font-bold tracking-[0.4em] group-active:text-black">ENTER GAME_VAULT</div>
+                <div class="text-[6px] opacity-40 uppercase">Authorized Personnel Only</div>
+            </button>
+
+            <button onclick="window.location.href='https://wa.me/6281386517352'" class="btn-cyber w-full py-4 rounded-md opacity-70">
+                <div class="text-[10px] font-bold tracking-[0.4em]">ADMIN_CONTACT</div>
+                <div class="text-[6px] opacity-40 uppercase">Direct Link to Jamhari</div>
+            </button>
+        </div>
+    </div>
+
+    <div class="w-full max-w-sm bg-black/50 border border-cyan-900/50 p-3 rounded text-left">
+        <div id="console" class="text-[7px] leading-relaxed text-cyan-600 font-mono">
+            > NUR_SYSTEM_BOOT_SUCCESS...<br>
+            > SECURITY_ENCRYPTION_ACTIVE...<br>
+            > WELCOME, ADMIN JAMHARI_
+        </div>
+    </div>
+
+    <script>
+        function accessVault() {
+            if (navigator.vibrate) navigator.vibrate([50, 30, 50]);
+            const log = document.getElementById('console');
+            log.innerHTML += "<br>> REDIRECTING_TO_GAME_VAULT...";
+            setTimeout(() => {
+                window.location.href = 'cd.html';
+            }, 800);
+        }
+
+        // Animasi Console Text Otomatis
+        const messages = [
+            "> SYNCING_RESOURCES...",
+            "> MEMORY_OPTIMIZED...",
+            "> CHECKING_MEMBER_LIST...",
+            "> CLOUD_LINK_STABLE...",
+            "> NUR_CORE_STABLE_100%"
+        ];
+
+        setInterval(() => {
+            const log = document.getElementById('console');
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            const lines = log.innerHTML.split("<br>");
+            if (lines.length > 4) lines.shift();
+            log.innerHTML = lines.join("<br>") + "<br>" + randomMsg;
+        }, 3000);
+    </script>
+
+</body>
+</html>
