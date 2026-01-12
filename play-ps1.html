@@ -6,38 +6,55 @@
     <title>Mesin PS1 - Indramayu Club</title>
     <style>
         body { margin: 0; background: #000; color: #fff; font-family: sans-serif; text-align: center; overflow: hidden; }
-        #player { width: 100%; height: 100vh; background: #000; }
-        .loading-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: gold; font-weight: bold; }
-        .nav-back { position: absolute; top: 10px; left: 10px; z-index: 10; background: rgba(255,0,0,0.7); color: #fff; border: none; padding: 8px 15px; border-radius: 5px; font-size: 12px; }
+        #emulator-box { width: 100%; height: 100vh; background: #000; display: flex; flex-direction: column; }
+        iframe { flex-grow: 1; border: none; width: 100%; height: 100%; }
+        .nav-back { position: absolute; top: 10px; left: 10px; z-index: 100; background: red; color: white; border: none; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .loading-screen { position: absolute; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 50; }
     </style>
 </head>
 <body>
 
     <button class="nav-back" onclick="window.location.href='cd.html'">⬅ KELUAR</button>
-    <div id="status" class="loading-text">NUR ENGINE: Menyiapkan Mesin PS1...</div>
 
-    <div id="player"></div>
+    <div id="loader" class="loading-screen">
+        <div style="color: gold; font-weight: bold;">
+            <p>NUR ENGINE V.2</p>
+            <p id="msg">Menyiapkan Mesin PS1...</p>
+        </div>
+    </div>
+
+    <div id="emulator-box">
+        <iframe id="game-frame" src=""></iframe>
+    </div>
 
     <script>
-        // Mengambil ID Game dari Link
         const params = new URLSearchParams(window.location.search);
         const gameId = params.get('id');
 
         if (gameId) {
-            // Script ini menghubungkan Emulator ke Google Drive Bapak
-            const driveDirectLink = "https://docs.google.com/uc?export=download&id=" + gameId;
+            // Jalur rahasia ke Google Drive Bapak
+            const gameUrl = "https://docs.google.com/uc?export=download&id=" + gameId;
             
-            document.getElementById('status').innerText = "Sedang Membaca Kaset Rumble Racing...";
+            // Nur memanggil Mesin Emulator Online yang mendukung PS1 (PCSX)
+            // Menggunakan webretro untuk streaming file bin/iso
+            const emuPath = "https://www.webretro.cc/?rom=" + encodeURIComponent(gameUrl) + "&core=pcsx_rearmed";
 
-            // Simulasi Loading (Nanti ini akan otomatis memanggil sistem emulator utama)
+            document.getElementById('msg').innerText = "Kaset Rumble Racing Terdeteksi...";
+            
+            // Masukkan link game ke dalam mesin
+            document.getElementById('game-frame').src = emuPath;
+
+            // Hilangkan loading screen setelah 5 detik
             setTimeout(() => {
-                document.getElementById('status').innerText = "Koneksi Berhasil! Silakan Gunakan Stick Bluetooth/Layar.";
-                // Di sini sistem akan otomatis me-load emulator kustom Bapak
-            }, 3000);
+                document.getElementById('loader').style.display = 'none';
+            }, 5000);
+
         } else {
-            document.getElementById('status').innerText = "Gagal! Kaset Tidak Terdeteksi.";
+            document.getElementById('msg').innerText = "Gagal! Kaset Tidak Ada.";
+            document.getElementById('msg').style.color = "red";
         }
     </script>
 
 </body>
 </html>
+
