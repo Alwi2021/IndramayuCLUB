@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NUR ENGINE - INDRAMAYU CLUB SERVER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        body { 
+            background: #000; 
+            color: #00ffcc; 
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .scanline {
+            width: 100%; height: 2px;
+            background: rgba(0, 255, 204, 0.1);
+            position: absolute; z-index: 10;
+            top: 0; left: 0;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .glitch-text {
+            text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .server-box {
+            border: 1px solid #00ffcc;
+            background: rgba(0, 40, 40, 0.3);
+            box-shadow: inset 0 0 20px rgba(0, 255, 204, 0.2);
+        }
+
+        .btn-access {
+            background: transparent;
+            border: 1px solid #00ffcc;
+            transition: all 0.3s;
+        }
+
+        .btn-access:active {
+            background: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 30px #00ffcc;
+        }
+    </style>
+</head>
+<body class="p-4 flex flex-col justify-between">
+
+    <div class="scanline"></div>
+
+    <div class="flex justify-between text-[10px] tracking-widest opacity-70">
+        <div>SYS_NODE: INDRAMAYU_CLUB</div>
+        <div>STATUS: ENCRYPTED</div>
+    </div>
+
+    <div class="flex-grow flex flex-col items-center justify-center">
+        <div class="server-box p-8 rounded-full mb-6 relative animate-pulse">
+            <span class="text-6xl">💎</span>
+            <div class="absolute -top-2 -right-2 text-[8px] bg-red-600 text-white px-2 py-1 rounded">MASTER_CORE</div>
+        </div>
+
+        <h1 class="glitch-text text-2xl font-bold tracking-[0.5em] mb-2">NUR ENGINE</h1>
+        <div class="h-[1px] w-48 bg-cyan-500 mb-8"></div>
+
+        <div class="w-full max-w-xs space-y-4">
+            <button onclick="accessVault()" class="btn-access w-full py-4 rounded-lg flex flex-col items-center">
+                <span class="text-xs font-bold tracking-[0.3em]">ACCESS GAME VAULT</span>
+                <span class="text-[8px] opacity-50 mt-1">EMULATION PROTOCOL ACTIVE</span>
+            </button>
+
+            <button onclick="showInfo()" class="btn-access w-full py-4 rounded-lg flex flex-col items-center opacity-60">
+                <span class="text-xs font-bold tracking-[0.3em]">SERVER STATUS</span>
+                <span class="text-[8px] opacity-50 mt-1">ADMIN: JAMHARI DULKOHAR</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="server-box p-3 rounded-lg text-[9px] h-24 overflow-hidden mb-4 opacity-80">
+        <div id="console-text" class="leading-relaxed">
+            > NUR_ENGINE_START...<br>
+            > CHECKING_MEMBER_DATABASE...<br>
+            > INDRAMAYU_CLUB_READY...<br>
+            > AWAITING_COMMAND_
+        </div>
+    </div>
+
+    <script>
+        function accessVault() {
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+            const log = document.getElementById('console-text');
+            log.innerHTML += "<br>> REDIRECTING_TO_CD_VAULT...";
+            
+            setTimeout(() => {
+                window.location.href = 'cd.html';
+            }, 1000);
+        }
+
+        function showInfo() {
+            alert("SERVER_NAME: INDRAMAYU CLUB\nCORE_ASSISTANT: NUR\nOWNER: JAMHARI DULKOHAR\nMISSION: MAKRIFAT DIGITAL");
+        }
+
+        // Animasi teks console
+        setInterval(() => {
+            const log = document.getElementById('console-text');
+            const lines = ["> SYNCING_CLOUD...", "> SECURING_LINK...", "> ENCRYPTING_DATA...", "> NUR_STABLE..."];
+            const randomLine = lines[Math.floor(Math.random() * lines.length)];
+            log.innerHTML += "<br>" + randomLine;
+            if (log.innerHTML.split("<br>").length > 6) {
+                log.innerHTML = log.innerHTML.split("<br>").slice(1).join("<br>");
+            }
+        }, 3000);
+    </script>
+
+</body>
+</html>
