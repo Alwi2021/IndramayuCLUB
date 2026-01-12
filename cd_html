@@ -8,9 +8,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
         body { background: #020617; color: white; font-family: 'Orbitron', sans-serif; overflow-x: hidden; }
-        .cd-case { transition: all 0.4s ease; border: 1px solid #1e293b; position: relative; overflow: hidden; }
+        .cd-case { transition: all 0.4s ease; border: 1px solid #1e293b; position: relative; overflow: hidden; cursor: pointer; }
         .cd-case:hover { transform: translateY(-10px); border-color: #06b6d4; box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3); }
-        .badge-4p { background: linear-gradient(to right, #9333ea, #7e22ce); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -34,19 +33,7 @@
                     <div class="p-2">
                         <p class="text-[8px] font-bold text-center">DOKAPON! (DADU)</p>
                         <span class="block text-[6px] text-center text-purple-400">4 PLAYER READY</span>
-                    
-<button onclick="playRumbleRacing()" style="width: 100%; padding: 12px; background: gold; color: black; font-weight: bold; border-radius: 10px; border: 2px solid #000; margin-bottom: 10px;">
-  🏎️ MAIN RUMBLE RACING
-</button>
-<script>
-function playRumbleRacing() {
-    const fileID = "1JaezXvqW3QOyZJOr-DVo1WWqAkQS4r-J";
-    // Nur memastikan jalur menuju mesin emulator
-    window.location.href = "play-ps1.html?id=" + fileID;
-}
-</script>
-
-</div>
+                    </div>
                 </div>
                 <div onclick="bootSecret('CTR', 'CTR_ID')" class="cd-case rounded-2xl bg-slate-900/50">
                     <img src="https://vimm.net/vault/images/covers/ps1/Crash%20Team%20Racing.jpg" class="h-44 w-full object-cover rounded-t-2xl">
@@ -71,11 +58,11 @@ function playRumbleRacing() {
                         <span class="block text-[6px] text-center text-cyan-400">2 PLAYER READY</span>
                     </div>
                 </div>
-                <div onclick="bootSecret('RUMBLE RACING', 'RUMBLE_ID')" class="cd-case rounded-2xl bg-slate-900/50 border-2 border-cyan-500/50">
+                <div onclick="playRumbleRacing()" class="cd-case rounded-2xl bg-slate-900/50 border-2 border-yellow-500">
                     <img src="https://m.media-amazon.com/images/I/51G8K280TCL.jpg" class="h-44 w-full object-cover rounded-t-2xl">
-                    <div class="p-2">
-                        <p class="text-[8px] font-bold text-center">RUMBLE RACING</p>
-                        <span class="block text-[6px] text-center text-cyan-400">MASTER GAME</span>
+                    <div class="p-2 bg-yellow-600/20">
+                        <p class="text-[8px] font-bold text-center text-yellow-400">🏎️ RUMBLE RACING</p>
+                        <span class="block text-[6px] text-center text-white">KLIK UNTUK MAIN</span>
                     </div>
                 </div>
             </div>
@@ -91,21 +78,26 @@ function playRumbleRacing() {
     </div>
 
     <script>
-        // Database Link Rahasia (ID File Drive Bapak)
         const SECRET_REPO = {
-            'RUMBLE_ID': 'LINK_DOWNLOAD_RAHASIA_RUMBLE',
-            'MSLUG_ID': 'LINK_DOWNLOAD_RAHASIA_METAL_SLUG',
-            'DOKAPON_ID': 'LINK_DOWNLOAD_RAHASIA_DOKAPON',
-            'CTR_ID': 'LINK_DOWNLOAD_RAHASIA_CTR'
+            'MSLUG_ID': 'LINK_METAL_SLUG',
+            'DOKAPON_ID': 'LINK_DOKAPON',
+            'CTR_ID': 'LINK_CTR'
         };
 
         let activeGame = null;
 
         function bootSecret(name, id) {
             activeGame = { name, id };
-            document.getElementById('display-title').innerText = "LOADING: " + name;
-            document.getElementById('display-stat').innerText = "LINK RAHASIA TERKUNCI";
-            if (navigator.vibrate) navigator.vibrate(50);
+            document.getElementById('display-title').innerText = "SELECTED: " + name;
+            document.getElementById('display-stat').innerText = "Gunakan Voucher untuk Link WA";
+        }
+
+        // FUNGSI KHUSUS RUMBLE RACING (Langsung ke Emulator)
+        function playRumbleRacing() {
+            const fileID = "1JaezXvqW3QOyZJOr-DVo1WWqAkQS4r-J";
+            if (navigator.vibrate) navigator.vibrate(100);
+            alert("NUR ENGINE: Menyiapkan Sirkuit Rumble Racing...");
+            window.location.href = "play-ps1.html?id=" + fileID;
         }
 
         function proses() {
@@ -113,11 +105,8 @@ function playRumbleRacing() {
             if(!activeGame) return alert("Pilih Kaset CD Dulu!");
             
             if(code === "INDRAMAYUCLUB") {
-                const link = SECRET_REPO[activeGame.id];
-                alert("VOUCHER VALID! Nur membuka link rahasia...");
-                
-                // Kirim Notifikasi ke WA Bapak
-                const msg = `AKTIVASI GAME: ${activeGame.name} menggunakan Voucher INDRAMAYUCLUB. Link Rahasia dikirim!`;
+                alert("VOUCHER VALID! Nur membuka jalur komunikasi...");
+                const msg = `AKTIVASI GAME: ${activeGame.name}. Mohon kirimkan link rahasianya!`;
                 window.location.href = `https://wa.me/6281386517352?text=${encodeURIComponent(msg)}`;
             } else {
                 alert("VOUCHER SALAH!");
